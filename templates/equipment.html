@@ -1,0 +1,161 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="main-info">
+    <aside class="filters">
+        <div class="container">
+            <!-- Advert Type Filter -->
+            <div class="filter-section">
+                <h3>Advert Type</h3>
+            <form method="POST" action="{% url 'ui:search' %}">
+                {% csrf_token %}
+                <div class="filter-options">
+                    <label><input type="checkbox" name="advert_type" value="sell"> SELL (141,841)</label>
+                    <label><input type="checkbox" name="advert_type" value="buy"> BUY (132)</label>
+                    <label><input type="checkbox" name="advert_type" value="auction"> AUCTION (575)</label>
+                </div>
+            </form>
+            </div>
+
+            <hr>
+
+            <!-- Category Filter -->
+            <div class="filter-section">
+                <h3>Category</h3>
+                <input type="search" name="category_search" placeholder="Search Category">
+                <ul class="category-list">
+                    {% comment %} Ideally, this should come from a loop {% endcomment %}
+                    {% for category in categories %}
+                    <li><a href="#">{{category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% comment %} <a href="#" class="short-link">Get short page link</a> {% endcomment %}
+        </div>
+    </aside>
+
+    <!-- Product Display -->
+     
+    <div class="product-tab">
+        <article class="product">
+            {% for product in products %}
+            <div class="product-image">
+                <img src="{{ product.image.url }}" alt="GE Voluson E8">
+                <span class="tag for-sale">FOR SALE</span>
+            </div>
+
+            <div class="product-details">
+                <h3 class="product-title">{{ product.name}}</h3>
+                <hr>
+                <div class="product-description">
+                    <p><strong>Brand:</strong> {{ product.brand }}</p>
+                    <p><strong>Model:</strong> {{ product.model }}</p>
+                    <p><strong>Category:</strong> {{ product.subsubcategory }}</p>
+                    <p><strong>See All:</strong> HEALICOM Coagulation Analyzer</p>
+                </div>
+
+                <hr>
+                <div class="product-meta">
+                    <p><strong>Shipping from:</strong> {{ product.shippingFrom }}</p>
+                    <p><strong>Condition:</strong> {{ product.condition }}</p>
+                </div>
+
+                <hr>
+                <div class="product-price-section">
+                    <h2 class="product-price">${{ product.price }}</h2>
+                    <div class="cta">
+                        <a href="#" id="openModalBtn" class="contact-seller">
+                            <i class="fa-solid fa-comments"></i> Contact Seller
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor%}
+        </article>
+        <!-- Trigger Button -->
+{% comment %} <button id="openModalBtn">Open Modal</button> {% endcomment %}
+
+<!-- Modal Structure -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    
+    {% for product in products %}
+            <div class="product-image">
+                <img src="{{ product.image.url }}" alt="GE Voluson E8">
+                <span class="tag for-sale">FOR SALE</span>
+            </div>
+
+            <div class="product-details">
+                <h3 class="product-title">{{ product.name}}</h3>
+                <hr>
+                <div class="product-description">
+                    <p><strong>Brand:</strong> {{ product.brand }}</p>
+                    <p><strong>Model:</strong> {{ product.model }}</p>
+                    <p><strong>Category:</strong> {{ product.subsubcategory }}</p>
+                    <p><strong>See All:</strong> HEALICOM Coagulation Analyzer</p>
+                </div>
+
+                <hr>
+                <div class="product-meta">
+                    <p><strong>Shipping from:</strong> {{ product.shippingFrom }}</p>
+                    <p><strong>Condition:</strong> {{ product.condition }}</p>
+                </div>
+
+                <hr>
+
+                <div class="product-price-section">
+                    <h2 class="product-price">${{ product.price }}</h2>
+    
+                </div>
+
+                <div class="contact-form">
+                    <form method="POST" action="{% url 'ui:equipments' %}">
+                        {%csrf_token%}
+                    <h3 class="form-title">Contact seller for more information</h3>
+                    <input type="text" id="user_feedback" name="name" class="form-input" placeholder="Write your Name...">
+                    <input type="email" id="user_feedback" name="email" class="form-input" placeholder="Write your email...">
+                    <input type="text" id="user_feedback" name="message" class="form-input" placeholder="Write your message...">
+                
+                    <label class="form-option">
+                      <input type="checkbox">
+                      Send this request to other sellers of the same model
+                    </label>
+                
+                    <label class="form-option">
+                      <input type="checkbox">
+                      Share my contact info with other sellers of similar equipment
+                    </label>
+                
+                    <div class="form-submit">
+                      <button href="#" type="submit" class="submit-btn">NEXT &gt;</button>
+                    </div>
+                </form>
+                  </div>
+            </div>
+            {% endfor%}
+  </div>
+</div>
+
+    </div>
+    
+</section>
+
+<!-- Subscription Banner -->
+<section class="subscription-banner">
+    <div class="subscribe-action">
+        <a href="#" class="subscribe-button">Subscribe</a>
+    </div>
+
+    <div class="subscribe-info">
+        <h3>Subscribe to New Ads in This Category</h3>
+        <ul class="benefits">
+            <li><i class="fa-regular fa-circle-check"></i> Be the first to get new ads</li>
+            <li><i class="fa-regular fa-circle-check"></i> The best terms and offers</li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="product-details container">
+    
+    <div class="product-content">
+        
+        <!-- Product Image Section -->
+       {% if product%}
+        <div class="product-image">
+            <img src="{{ product.image.url }}" alt="GE Voluson E8 Ultrasound Machine">
+            <span class="product-tag">FOR SALE</span>
+        </div>
+
+        <!-- Product Info Section -->
+        <article class="product-info">
+            
+            <header>
+                <h1 class="product-title">{{ product.title }}</h1>
+                <hr>
+            </header>
+
+            <section class="product-description">
+                <p><strong>Condition:</strong> {{ product.condition}}</p>
+                <p><strong>Shipping from:</strong> {{ product.shippingFrom}}</p>
+                <p><strong>Sales Area:</strong> Worldwide</p>
+            </section>
+
+            <hr>
+
+            <section class="product-price">
+                <h2>${{ product.price}}</h2>
+            </section>
+
+            <hr>
+
+            <div class="cta">
+                <a href="#" class="btn-contact">
+                    <i class="fa-solid fa-comments"></i> Contact Seller
+                </a>
+            </div>
+
+            <hr>
+
+            <!-- Payment & Safety Info -->
+            <section class="payment-safety">
+                <div class="payment-header">
+                    <h3>Secure Transaction via MediToolz Platform</h3>
+                    <a href="#">More Details</a>
+                </div>
+
+                <div class="payment-benefits">
+                    <div class="benefit">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Buyer's and Seller's Rights Protection</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fa-solid fa-shield"></i>
+                        <span>Safe Payment</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fa-solid fa-language"></i>
+                        <span>Personal Multilingual Support</span>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+    </div>
+</section>
+{% endif %}
+<section class="product-specs container">
+    
+    <div class="spec-list">
+        <h2>Product Specifications</h2>
+        <div class="spec-item"> <!-- Example --> </div>
+        <div class="spec-item"></div>
+        <div class="spec-item"></div>
+        <div class="spec-item"></div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="main-info">
+    <aside class="filters">
+        <div class="container">
+            <!-- Advert Type Filter -->
+            <div class="filter-section">
+                <h3>Advert Type</h3>
+                <div class="filter-options">
+                    <label><input type="checkbox" name="advert_type" value="sell"> SELL (141,841)</label>
+                    <label><input type="checkbox" name="advert_type" value="buy"> BUY (132)</label>
+                    <label><input type="checkbox" name="advert_type" value="auction"> AUCTION (575)</label>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Category Filter -->
+            <div class="filter-section">
+                <h3>Category</h3>
+                <input type="search" name="category_search" placeholder="Search Category">
+                <ul class="category-list">
+                    {% comment %} Ideally, this should come from a loop {% endcomment %}
+                    {% for i in "1234567890"|make_list %}
+                    <li><a href="#">Anesthesia Equipment / ICU</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <a href="#" class="short-link">Get short page link</a>
+        </div>
+    </aside>
+{% if query %}
+    <!-- Product Display -->
+     
+    <div class="product-tab">
+        <article class="product">
+            {% for product in products %}
+            <div class="product-image">
+                <img src="{{ product.image.url }}" alt="GE Voluson E8">
+                <span class="tag for-sale">FOR SALE</span>
+            </div>
+
+            <div class="product-details">
+                <h3 class="product-title">{{ product.title}}</h3>
+                <hr>
+                <div class="product-description">
+                    <p><strong>Brand:</strong> HEALICOM</p>
+                    <p><strong>Model:</strong> HK1000i</p>
+                    <p><strong>Category:</strong> Coagulation Analyzer</p>
+                    <p><strong>See All:</strong> HEALICOM Coagulation Analyzer</p>
+                </div>
+
+                <hr>
+                <div class="product-meta">
+                    <p><strong>Shipping from:</strong> {{ product.shippingFrom }}</p>
+                    <p><strong>Condition:</strong> {{ product.condition }}</p>
+                </div>
+
+                <hr>
+                <div class="product-price-section">
+                    <h2 class="product-price">${{ product.price }}</h2>
+                    <div class="cta">
+                        <a href="#" class="contact-seller">
+                            <i class="fa-solid fa-comments"></i> Contact Seller
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor%}
+        </article>
+    </div>
+    {% else %}
+    <div class="">
+        <h2>No Results Found</h2>
+        <p>Try adjusting your search or filter options.</p>
+    {% endif %}
+    
+</section>
+
+<!-- Subscription Banner -->
+<section class="subscription-banner">
+    <div class="subscribe-action">
+        <a href="#" class="subscribe-button">Subscribe</a>
+    </div>
+
+    <div class="subscribe-info">
+        <h3>Subscribe to New Ads in This Category</h3>
+        <ul class="benefits">
+            <li><i class="fa-regular fa-circle-check"></i> Be the first to get new ads</li>
+            <li><i class="fa-regular fa-circle-check"></i> The best terms and offers</li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}

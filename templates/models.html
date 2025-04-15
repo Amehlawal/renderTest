@@ -1,0 +1,174 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="main-info">
+ 
+    <aside class="filters">
+        <div class="container">
+          
+
+            <hr>
+
+            <!-- Category Filter -->
+            <div class="filter-section">
+                <h3>Category</h3>
+                <input type="search" name="category_search" placeholder="Search Category">
+                <ul class="category-list">
+                    {% comment %} Ideally, this should come from a loop {% endcomment %}
+                    {% for category in categories %}
+                    <li><a href="#">{{category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Product Display -->
+     
+    <div class="product-tab">
+        <article class="product">
+          
+<div class="brand-wrapper">
+  <div class="brand-title">BRANDS</div>
+  <div class="sp-brands">
+    <!-- <button type="button">
+      <i class="fa-solid fa-arrow-left arrow"></i>
+    </button> -->
+    <div class="brand-slide">
+      <div class="brand-slider">
+        <ul class="brand-list">
+          <li>
+            <div class="brand-item" title="SAMSUNG">
+              <a href="#"><span class="brand-name">SAMSUNG</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="TOSHIBA">
+              <a href="#"><span class="brand-name">TOSHIBA</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="HP">
+              <a href="#"><span class="brand-name">HP</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="APPLE">
+              <a href="#"><span class="brand-name">APPLE</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="LENOVO">
+              <a href="#"><span class="brand-name">LENOVO</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="STRYKER">
+              <a href="#"><span class="brand-name">STRYKER</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="STRYKER">
+              <a href="#"><span class="brand-name">STRYKER</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="STRYKER">
+              <a href="#"><span class="brand-name">STRYKER</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="SHIMADZU">
+              <a href="#"><span class="brand-name">SHIMADZU</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="BOSTON SCIENTIFIC">
+              <a href="#"
+                ><span class="brand-name">BOSTON SCIENTIFIC</span></a
+              >
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="BELARTS PRODUCTS">
+              <a href="#"
+                ><span class="brand-name">BELARTS PRODUCTS</span></a
+              >
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="PHILLIPS">
+              <a href="#"><span class="brand-name">PHILLIPS</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="TOYOTA">
+              <a href="#"><span class="brand-name">TOYOTA</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="FORD">
+              <a href="#"><span class="brand-name">FORD</span></a>
+            </div>
+          </li>
+          <li>
+            <div class="brand-item" title="MERCEDES">
+              <a href="#"><span class="brand-name">MERCEDES</span></a>
+            </div>
+          </li>
+        </ul>
+        <!-- <button type="button">
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </button> -->
+
+        <div class="see-more"><a href="#">Brands Catalog></a></div>
+      </div>
+    </div>
+  </div>
+</div>
+          <section class="featured-products">
+            <h2></h2>
+            <div class="product-carousel">
+              <button class="carousel-prev">&#10094;</button>
+              <div class="product-container">
+                {% for product in products %}
+                  <div class="product-card">
+                    <a href="{% url 'ui:product' slug=product.slug %}">
+                      <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                      <h3>{{ product.name }}</h3>
+                    </a>
+                    <p>Shipping from: {{ product.shippingFrom }} <span class="flag">🇬🇧</span></p>
+                    <p>Condition: <strong>{{ product.condition }}</strong></p>
+                    <p class="price">${{ product.price }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+              <button class="carousel-next">&#10095;</button>
+            </div>
+          </section>
+        </article>
+        
+  </div>
+</div>
+
+    </div>
+    
+</section>
+
+<!-- Subscription Banner -->
+<section class="subscription-banner">
+    <div class="subscribe-action">
+        <a href="#" class="subscribe-button">Subscribe</a>
+    </div>
+
+    <div class="subscribe-info">
+        <h3>Subscribe to New Ads in This Category</h3>
+        <ul class="benefits">
+            <li><i class="fa-regular fa-circle-check"></i> Be the first to get new ads</li>
+            <li><i class="fa-regular fa-circle-check"></i> The best terms and offers</li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}

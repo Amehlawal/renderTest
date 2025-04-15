@@ -1,0 +1,50 @@
+<header>
+    <div class="top-bar">
+        <!-- Logo Section -->
+        <a href="/" class="logo-link">
+            <div class="logo">
+                Medi<span>toolz</span>
+            </div>
+        </a>
+
+        <!-- Navigation Options Section -->
+        <div class="nav-options">
+            <!-- Currency and Flag -->
+            <div class="currency">
+                <img src="https://imgs.search.brave.com/RSeyJ54ad2ET8E-Nz5mCiRTUixkAZ7cm-mJWE-dkwHE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y291bnRyeWZsYWdz/LmNvbS90aHVtYnMv/dW5pdGVkLXN0YXRl/cy1vZi1hbWVyaWNh/L2ZsYWctNDAwLnBu/Zw" alt="US Flag">
+                <button class="currency-btn">USD</button>
+            </div>
+
+            <!-- Heart Icon (Favorites) -->
+            <a href="#" class="butt" aria-label="Favorites">❤️</a>
+
+            <!-- Authentication Links (Dynamic based on User Status) -->
+            {% if user.is_authenticated %}
+                <a href="/users/logout" class="butt">Sign out</a>
+            {% else %}
+                <a href="/users/login" class="butt">Sign in</a>
+                <a href="/users/register" class="butt">Register</a>
+            {% endif %}
+
+            <!-- Advert Button -->
+            <button class="advert">+ PLACE AN ADVERT</button>
+        </div>
+    </div>
+
+    <!-- Main Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'ui:equipments' %}" class="butt">Equipment</a></li>
+            <li><a href="{% url 'ui:models' %}" class="butt">Models</a></li>
+            <li><a href="#" class="butt">Parts</a></li>
+            <li><a href="#" class="butt">Services</a></li>
+            <li><a href="#" class="butt">Sellers Catalog</a></li>
+            <li><a href="#" class="butt">Sellers Blacklist</a></li>
+            <li><a href="#" class="butt">Become a Partner</a></li>
+            <li><a href="#" class="butt">Tariffs</a></li>
+            <li><a href="#" class="butt">Manufacturers</a></li>
+            <li><a href="#" class="butt">For Manufacturers</a></li>
+            {% comment %} <li><a href="/auctions" class="butt">Auctions</a></li> {% endcomment %}
+        </ul>
+    </nav>
+</header>

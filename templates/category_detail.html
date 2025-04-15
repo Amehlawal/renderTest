@@ -1,0 +1,133 @@
+{% comment %} {% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <!-- Sidebar: Category Tree -->
+  <div class="mleft-side">
+    <div class="category-tree">
+      <div class="tree">
+        <div class="tree-title">Categories</div>
+        <ul>
+          {% for cat in categories %}
+            <li>
+              <a href="{% url 'ui:ategory_detail' cat.slug %}">{{ cat.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-body">
+    <!-- Breadcrumb or Navigation Links -->
+    <div class="tpl">
+      <a href="{% url 'home' %}" class="arrow home-link">Home</a>
+      <a href="#" class="arrow model-link">{{ category.name }}</a>
+    </div>
+
+    <!-- Section Title -->
+    <div class="main-body-title">
+      <h2 class="service-title">{{ category.name }}</h2>
+    </div>
+
+    <!-- Product Cards -->
+    <div class="bmodel-container">
+      <ul>
+        {% for product in products %}
+        <li class="bmodel-item">
+          <div class="image-wrapper">
+            <div class="product-image">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            </div>
+          </div>
+          <div class="product-name">
+            <div class="product-name-wrapper">
+              <span>{{ product.name }}</span>
+            </div>
+            <div class="product-info">
+              <span>Brand: {{ product.brand.name }}</span>
+              <span class="num-of-s">In Stock: {{ product.stock }}</span>
+              <div class="prices">
+                <span class="price-value">₦{{ product.price|floatformat:2 }}</span>
+              </div>
+              <div class="price-btn">
+                <a href="#">View Details</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% empty %}
+        <p style="padding: 20px;">No products found under this category.</p>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %} {% endcomment %}
+
+
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <!-- Left Sidebar (Category Tree) -->
+    <div class="mleft-side">
+      <div class="category-tree">
+        <div class="category-search">
+          <input type="text" placeholder="Search categories..." class="search-input">
+        </div>
+        <div class="tree">
+          <div class="tree-title">Categories</div>
+          <ul>
+            {% for category in categories %}
+              <li>
+                {% comment %} <a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a> {% endcomment %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-body">
+      <div class="main-body-title">
+        <h1>{{ category.name }}</h1>
+        <p>{{ category.description }}</p>
+      </div>
+      
+      <!-- Product Listing -->
+      <div class="bmodel-container">
+        <ul>
+          {% for product in products %}
+            <li>
+              <div class="bmodel-item">
+                <div class="image-wrapper">
+                  <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-name">
+                  <div class="product-name-wrapper">
+                    <span>{{ product.name }}</span>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <span class="num-of-s">{{ product.stock }} in stock</span>
+                  <div class="prices">
+                    <span class="price-value">₦{{ product.price }}</span>
+                  </div>
+                </div>
+                <div class="price-btn">
+                  {% comment %} <a href="{% url 'product_detail' product.slug %}">View Product</a> {% endcomment %}
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="see-more">
+        {% comment %} <a href="{% url 'category_list' %}">See more categories</a> {% endcomment %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

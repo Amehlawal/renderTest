@@ -1,0 +1,230 @@
+/* Layout Structure */
+.main-info {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Filters Section */
+.filters {
+    background-color: #fff;
+    width: 360px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-options label {
+    font-size: 14px;
+}
+
+/* Category Search */
+.category input[type="search"] {
+    width: 100%;
+    height: 35px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+.category-list {
+    padding-left: 0;
+}
+
+.category-list li {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+.category-list li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.short-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #007bff;
+}
+
+/* Product Tab */
+.product-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product {
+    background-color: #fff;
+    border: 2px solid #f1c40f;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+}
+
+/* Product Image */
+.product-image {
+    background-color: #3f4a75;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.tag {
+    position: absolute;
+    top: 10px;
+    right: -40px;
+    transform: rotate(45deg);
+    background-color: #2f3351;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+/* Product Info */
+.product-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.product-price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.product-price {
+    color: #2f3351;
+    font-size: 22px;
+}
+
+.contact-seller {
+    display: inline-block;
+    background-color: #f1c40f;
+    color: #000;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid #3c5890;
+    transition: background 0.3s;
+}
+
+.contact-seller:hover {
+    background-color: #e1b900;
+}
+
+/* Banner */
+.subscription-banner {
+    display: flex;
+    background-color: #2f3351;
+    color: white;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 10px;
+    margin: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.subscribe-button {
+    background-color: #f1c40f;
+    padding: 8px 24px;
+    border-radius: 25px;
+    color: #000;
+    text-decoration: none;
+    border: 1px solid #000;
+    font-weight: bold;
+}
+
+.subscribe-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.benefits {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.benefits li {
+    font-size: 16px;
+}
+
+.benefits i {
+    color: #f4c542;
+    margin-right: 10px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #444;
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.back-to-top a {
+    color: white;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+}
+
+.back-to-top:hover {
+    background: #f1c40f;
+}

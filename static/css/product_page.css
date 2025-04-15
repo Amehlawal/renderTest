@@ -1,0 +1,196 @@
+/* ========== Global ========== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* ========== Layout ========== */
+.product-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+
+/* ========== Image Section ========== */
+.product-image {
+    position: relative;
+    flex: 1 1 400px;
+    max-width: 450px;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #2f3351;
+    color: white;
+    padding: 5px 12px;
+    font-size: 14px;
+    border-radius: 0 6px 0 6px;
+    font-weight: bold;
+}
+
+/* ========== Product Info ========== */
+.product-info {
+    flex: 2 1 300px;
+}
+
+.product-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #2f3351;
+}
+
+.product-description p {
+    font-size: 14px;
+    margin: 6px 0;
+    color: #333;
+}
+
+.product-price h2 {
+    color: #2f3351;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+/* ========== Call to Action ========== */
+.cta {
+    margin: 20px 0;
+}
+
+.btn-contact {
+    background-color: #f1c40f;
+    border-radius: 25px;
+    padding: 10px 20px;
+    border: 1px solid #3c5890;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: #e0b90e;
+}
+
+/* ========== Payment Section ========== */
+.payment-safety {
+    border: 2px solid #90ade8;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.payment-header h3 {
+    font-size: 18px;
+    color: #2f3351;
+    margin: 0;
+}
+
+.payment-header a {
+    color: #4c5a76;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.payment-benefits {
+    display: flex;
+    gap: 15px;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    background-color: #f4f7fc;
+    padding: 10px 15px;
+    border-radius: 8px;
+    flex: 1 1 250px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.benefit i {
+    font-size: 22px;
+    color: #2f3351;
+}
+
+/* ========== Specs Section ========== */
+.product-specs {
+    margin-top: 60px;
+    display: flex;
+}
+
+.product-specs h2 {
+    font-size: 24px;
+    color: #2f3351;
+    margin-bottom: 20px;
+}
+/* 
+.spec-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+} */
+
+/* .spec-item {
+    flex: 1 1 200px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 100px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+} */
+
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+    .product-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-image, .product-info {
+        max-width: 100%;
+    }
+
+    .payment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .btn-contact {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .payment-benefits {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,176 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+  <h1>New & Used Medical Equipment</h1>
+  <div class="features">
+    <div class="feature-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check">
+        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM10.354 6a5.508 5.508 0 0 1 1.027-.608A4 4 0 1 0 4 10h.5a.5.5 0 0 1 0 1H4a5 5 0 1 1 6.354-5z" />
+        <path d="M15.354 12.354a.5.5 0 0 1-.708 0L13 10.707l-.646.647a.5.5 0 0 1-.708-.708l1-1a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708z" />
+      </svg>
+      <strong>Trusted</strong> and <strong>verified</strong> sellers by <b>MediToolz</b>
+    </div>
+
+    <div class="feature-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise">
+        <path d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 1 0-.908-.418A6 6 0 1 0 8 2v1z" />
+        <path d="M8 1a.5.5 0 0 0-.5.5v3A.5.5 0 0 0 8 5h3a.5.5 0 0 0 0-1H8.5V1.5A.5.5 0 0 0 8 1z" />
+      </svg>
+      <strong>Trade</strong> in your <b>old</b> equipment
+    </div>
+
+    <div class="feature-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 6H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 15H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zM3.102 7l1.313 7h8.17l1.313-7H3.102z" />
+        <path d="M5 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm7-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+      </svg>
+      <b>496,417</b> products <strong>listed</strong>
+    </div>
+
+    <div class="feature-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reception-2">
+        <path d="M0 14h1v2H0v-2zm2-4h1v6H2v-6zm2-4h1v10H4V6zm2 1h1v9H6V7z" />
+      </svg>
+      The <b>number 1</b> platform for the <strong>sale</strong> of <b>medical equipment</b>
+    </div>
+  </div>
+
+  <h2>WHAT ARE YOU LOOKING FOR?</h2>
+  <form method="POST" action="{% url 'ui:search' %}">
+    {% csrf_token %}
+    <div class="search-bar">
+      <input type="text" name="search" placeholder="I'm looking for...">
+      <button type="submit">Search</button>
+    </div>
+  </form>
+</section>
+
+<section class="categories">
+  {% comment %}
+  <div class="category">Dental Lab Equipment</div>
+  <div class="category">Emt Training</div>
+  <div class="category">Endoscopy Equipment</div>
+  <div class="category">ENT Equipment</div>
+  <div class="category">Healthcare IT, Telemedicine</div>
+  <div class="category">Home Care Rehab</div>
+  <div class="category">Hospital Equipment</div>
+  <div class="category">Imaging</div>
+  <div class="category">Laboratory Equipment</div>
+  <div class="category">Medical Consumable Supplies</div>
+  <div class="category">Medical Software and Healthcare IT</div>
+  <div class="category">Mobile Clinics</div>
+  <div class="category">Neurology Equipment</div>
+  <div class="category">OB GYN Equipment</div>
+  <div class="category">Ophthalmic Equipment</div>
+  <div class="category">Pediatric Equipment</div>
+  <div class="category">Physiotherapy Equipment</div>
+  <div class="category">Spareparts for Dental CAD/CAM</div>
+  <div class="category">Sterilising Equipment</div>
+  <div class="category">Surgery Equipment</div>
+  <div class="category">Urology Equipment</div>
+  <div class="category">Veterinary Equipment</div>
+  <div class="category">Wellness or Fitness Devices</div> {% endcomment %}
+
+  {% for category in categories %}
+    <div class="category">{{ category.name }}</div>
+  
+  {% endfor %}
+</section>
+
+<section class="featured-products">
+  <h2>Featured from MRI Machines</h2>
+  <div class="product-carousel">
+    <button class="carousel-prev">&#10094;</button>
+    <div class="product-container">
+      {% for product in products %}
+        <div class="product-card">
+          <a href="{% url 'ui:product' slug=product.slug %}">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+          </a>
+          <p>Shipping from: {{ product.shippingFrom }} <span class="flag">🇬🇧</span></p>
+          <p>Condition: <strong>{{ product.condition }}</strong></p>
+          <p class="price">${{ product.price }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-next">&#10095;</button>
+  </div>
+</section>
+
+<section class="about">
+  <div class="two">
+    <div class="about-bimedis">
+      <h2>What is MediToolz?</h2>
+      <p><strong>MediToolz</strong> is a <strong>Medical</strong> and <strong>Hospital Equipment Marketplace</strong> where users can buy <strong>New</strong>, <strong>Used</strong>, and <strong>Refurbished</strong> medical equipment and locate healthcare services with our <strong>Services Directory</strong>.</p>
+      <p>We offer over <strong>390,000</strong> listings, including used equipment, home devices, software, surgical tools, instruments, and consumables.</p>
+      <p>Doctors and dealers love our powerful classified engine, which helps users filter by category, brand, model, year, condition, price, and origin.</p>
+    </div>
+
+    <div class="bimedis-advantages">
+      <h2>Our Advantages</h2>
+      <p>As a <strong>B2B</strong> medical device supplier, MediToolz helps you increase online visibility, market reach, and brand authority.</p>
+      <p>With over <strong>2 million</strong> yearly visitors, MediToolz is 16 times more effective than MEDICA Trade Fair Düsseldorf for online exposure.</p>
+    </div>
+  </div>
+
+  <div class="image">
+    <img src="{% static 'images/bimedis.png' %}" alt="MediToolz Overview">
+  </div>
+</section>
+
+<section class="bus-opportunities">
+  <h2 class="section-title">Maximize Your Business with MediToolz</h2>
+  <div class="features">
+    <div class="feature-box">
+      <i class="fa-solid fa-universal-access"></i>
+      <p><strong>Sales Leads</strong></p>
+      <p>Receive targeted leads from active buyers via the platform.</p>
+    </div>
+
+    <div class="feature-box">
+      <i class="fa-solid fa-crosshairs"></i>
+      <p><strong>Target Audience</strong></p>
+      <p>Engage qualified customers who are actively looking to buy.</p>
+    </div>
+
+    <div class="feature-box">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill">
+        <path d="M15.854 5.146a.5.5 0 0 0-.708 0L13.5 6.793l-.646-.647a.5.5 0 1 0-.708.708l1 1a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0 0-.708z"/>
+        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm6-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      </svg>
+      <p><strong>Verification</strong></p>
+      <p>All business interactions are verified for security and trust.</p>
+    </div>
+  </div>
+</section>
+
+{% comment %} <section class="feedback">
+  <h2 class="section-title">Customer Feedback</h2>
+  <div class="feedback-container">
+    {% for video in feedback_videos %}
+    <div class="feedback-card">
+      <iframe src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+      <p><strong>{{ video.company }}</strong></p>
+    </div>
+    {% endfor %}
+  </div>
+</section> {% endcomment %}
+
+<section class="banner-carousel">
+  <h2 class="section-title">Our Friends’ Feedback</h2>
+  <div class="carousel-container">
+    <button class="carousel-prev">&#10094;</button>
+    <div class="carousel">
+      <div class="write-up">
+        MediToolz offers an incredibly user-friendly interface, a diverse product range, and strict quality control.<br>
+        <strong>GERMAN KOSHELEV</strong>
+      </div>
+    </div>
+    <button class="carousel-next">&#10095;</button>
+  </div>
+</section>
+
+{% endblock %}

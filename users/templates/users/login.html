@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% load socialaccount %}
+
+{% block content %}
+<section class="auth-area">
+  <h2>Buyer Login</h2>
+
+  <div class="auth-wrapper">
+    <!-- Call to Action -->
+    <div class="cta-box">
+      <h4>Want to sell on MediToolz?</h4>
+      <a href="#" class="cta-link">Register as a Seller</a>
+    </div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+      <div class="form-header">
+        <a href="/users/register">Register</a>
+        <button class="close-btn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <form action="/users/login/" method="post" class="login-form">
+        {% csrf_token %}
+
+        <!-- Social Auth -->
+        <div class="social-login">
+          {% comment %} <button type="button" class="google-login"> {% endcomment %}
+            <a href={% provider_login_url 'google'%}>
+            
+            <i class="google-login fa-brands fa-google fa-beat"></i> Sign in with Google
+          </a>
+          {% comment %} </button> {% endcomment %}
+        </div>
+
+        <div class="separator"><span>OR</span></div>
+
+        <!-- Login Inputs -->
+        <div class="form-group">
+          <input type="text" name="username" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <div class="form-footer">
+          <a href="#">Forgot your password?</a>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit">Continue</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

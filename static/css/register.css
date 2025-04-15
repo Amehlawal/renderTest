@@ -1,0 +1,256 @@
+/* Container for form and call-to-action */
+.container {
+    margin: 60px auto;
+    background-color: rgb(248, 248, 248);
+    width: 600px;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Navigation */
+.container nav {
+    display: flex;
+    background-color: rgb(248, 248, 248);
+    margin: 0px;
+    flex-direction: column;
+}
+
+.container nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.container nav ul li {
+    margin: auto;
+    transition: .5s;
+    width: 100px;
+    height: 30px;
+    align-content: center;
+}
+
+.container nav ul li:active {
+    background-color: #ebebeb;
+    border-bottom: 1px solid #3c5890;
+}
+
+.container nav ul li:hover {
+    background-color: #e2e2e2;
+}
+
+.container nav ul li a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.container nav ul i {
+    margin: 0px 30px 0px 0px;
+}
+
+/* Section Area */
+.area {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    min-height: 900px;
+}
+
+.area h2 {
+    margin: 70px 0px 0px 0px;
+    font-size: 42px;
+    font-weight: 500;
+    color: #3c5890;
+}
+
+/* Layout for call-to-action and form */
+.thing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Call to Action Box */
+.call-to-action {
+    width: 450px;
+    height: 450px;
+    /* margin-top: 10%; */
+    background-color: #ededed;
+    border-radius: 50%;
+    align-content: center;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    box-sizing: border-box;
+    margin: 10px auto;
+}
+
+.call-to-action h4 {
+    font-size: 32px;
+    color: #454a74;
+    margin-bottom: 30px;
+}
+
+/* CTA Button */
+.anchor {
+    align-content: center;
+    border: 1px solid black;
+    width: 250px;
+    height: 40px;
+    background-color: #fccb44;
+    border-radius: 30px;
+    transition: 1s;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin: 10px auto;
+}
+
+.anchor:hover {
+    background-color: #e4bb4a;
+}
+
+.call-to-action a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Google Button Section */
+.butt-fill {
+    margin: 20px 0px 0px 0px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.butt-fill .button {
+    background-color: brown;
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.butt-fill .button a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.google-btn {
+    background-color: #db4437;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.google-btn:hover {
+    background-color: #c23321;
+}
+
+.google-btn i {
+    margin-right: 5px;
+}
+
+/* Input Fields */
+.input-fill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input-tab,
+.input-fill input,
+.input-fill select,
+.input-fill textarea {
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    margin: 10px 0;
+    padding: 0 20px;
+    font-size: 15px;
+}
+
+.input-fill .errorlist {
+    color: red;
+    font-size: 13px;
+    list-style-type: none;
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+}
+
+/* Submit Button */
+.end {
+    margin: 40px 0px 0px 0px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.end button {
+    width: 100%;
+    height: 40px;
+    font-size: medium;
+    font-family: Roboto, sans-serif;
+    border: 1px black solid;
+    background-color: #fccb44;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.end button:hover {
+    background-color: #e4bb4a;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .thing {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .call-to-action {
+        width: 300px;
+        height: 300px;
+        margin-top: 30px;
+        border-radius: 50%;
+    }
+
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .input-tab,
+    .google-btn,
+    .end button,
+    .butt-fill .button {
+        width: 100%;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="area">
+    <h2>BUYER REGISTRATION</h2>
+
+    <div class="thing">
+        <!-- Left Call to Action -->
+        <div class="call-to-action">
+            <h4>Do you want to Sell on MediToolz?</h4>
+            <div class="anchor">
+                <a href="#">REGISTER AS A SELLER</a>
+            </div>
+        </div>
+
+        <!-- Registration Container -->
+        <div class="container">
+            <!-- Auth Navigation -->
+            <nav>
+                <ul>
+                    <li><a href="/users/login">Sign in</a></li>
+                    <li><a href="/users/register">Register</a></li>
+                    <i class="fa-solid fa-xmark"></i>
+                </ul>
+            </nav>
+
+            <!-- Registration Form -->
+            <section class="butt-fill">
+                <div class="button">
+                    <i class="fa-brands fa-google fa-beat"></i>
+                    <a href="#">SIGN IN WITH GOOGLE</a>
+                </div>
+
+                <h4>OR</h4>
+
+                <form action="/users/register/" method="post" class="input-fill">
+                    {% csrf_token %}
+                    {{ form }}
+
+                    <div class="end">
+                        <button type="submit">CONTINUE</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}
